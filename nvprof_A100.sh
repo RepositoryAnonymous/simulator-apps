@@ -8,8 +8,8 @@ apps_root=$(cd $(dirname $0); pwd)
 
 cd $apps_root
 
-rm -rf ./NsightCollection
-mkdir ./NsightCollection
+rm -rf ./NsightCollection_A100
+mkdir ./NsightCollection_A100
 
 ##################################################################################
 ###                                                                            ###
@@ -26,7 +26,7 @@ make clean && make
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -36,7 +36,7 @@ make clean && make
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -46,7 +46,7 @@ make clean && make
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -56,7 +56,7 @@ make clean && make
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_CC_example_2048x2048x2048 \
@@ -65,7 +65,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_CC_example_204
 expect ../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../expect.expect "$chmod_cmd"
-nsight_save_dir=../NsightCollection
+nsight_save_dir=../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_CC_example_4096x4096x4096 \
@@ -74,7 +74,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_CC_example_8192x8192x8192 \
@@ -83,7 +83,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 ##################################################################################
@@ -101,7 +101,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_TC_example_256x256x256 \
@@ -110,7 +110,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_TC_example_512x512x512 \
@@ -119,7 +119,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_TC_example_1024x1024x1024 \
@@ -128,7 +128,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_TC_example_2048x2048x2048 \
@@ -137,7 +137,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_TC_example_4096x4096x4096 \
@@ -146,7 +146,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cublas_GemmEx_HF_TC_example_8192x8192x8192 \
@@ -155,7 +155,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 ##################################################################################
@@ -174,7 +174,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -185,7 +185,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -196,7 +196,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -207,7 +207,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -227,7 +227,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./2DConvolution \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -238,7 +238,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./3DConvolution \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -249,7 +249,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./3mm \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -260,7 +260,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./atax \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -271,7 +271,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./bicg \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -282,7 +282,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gemm \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -293,7 +293,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gesummv \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -304,7 +304,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gramschmidt \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -315,7 +315,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./mvt \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -336,7 +336,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./b+tree \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -347,7 +347,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./backprop \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -358,7 +358,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./bfs \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -369,7 +369,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./cfd \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -380,7 +380,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./dwt2d \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -391,7 +391,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gaussian \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -402,7 +402,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./hotspot \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -413,7 +413,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./hotspot3D \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -424,7 +424,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./huffman \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -435,7 +435,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./lavaMD \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -446,7 +446,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./lud \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -457,7 +457,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./nn \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -468,7 +468,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./nw \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -479,7 +479,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./pathfinder \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -498,7 +498,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sputnik_spmm_csr_HF_CC_1024x1024x52428x1024 \
@@ -507,7 +507,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sputnik_spmm_csr_HF_CC_2048x2048x209716x2048 \
@@ -516,7 +516,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sputnik_spmm_csr_HF_CC_4096x4096x838860x4096 \
@@ -525,7 +525,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 
@@ -544,7 +544,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./vectorSparse_spmm_csr_HF_TC_1024x1024x52428x1024 \
@@ -553,7 +553,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./vectorSparse_spmm_csr_HF_TC_2048x2048x209716x2048 \
@@ -562,7 +562,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./vectorSparse_spmm_csr_HF_TC_4096x4096x838860x4096 \
@@ -571,7 +571,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../expect.expect "$env_cmd && $ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../expect.expect "$chmod_cmd"
-# nsight_save_dir=../NsightCollection
+# nsight_save_dir=../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 ##################################################################################
@@ -590,7 +590,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./conv_bench_inference_halfx700x1
 expect ../../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../../NsightCollection
+nsight_save_dir=../../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 # ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./conv_bench_train_halfx700x161x1x1x32x20x5x0x0x2x2 \
@@ -599,7 +599,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../../../../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../../../../expect.expect "$chmod_cmd"
-# nsight_save_dir=../../../../NsightCollection
+# nsight_save_dir=../../../../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gemm_bench_inference_halfx1760x7000x1760x0x0 \
@@ -608,7 +608,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gemm_bench_inference_halfx1760x
 expect ../../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../../NsightCollection
+nsight_save_dir=../../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gemm_bench_train_halfx1760x7000x1760x0x0 \
@@ -617,7 +617,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./gemm_bench_train_halfx1760x7000
 expect ../../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../../NsightCollection
+nsight_save_dir=../../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./rnn_bench_inference_halfx1024x1x25xlstm \
@@ -626,7 +626,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./rnn_bench_inference_halfx1024x1
 expect ../../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../../NsightCollection
+nsight_save_dir=../../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./rnn_bench_train_halfx1024x1x25xlstm \
@@ -635,7 +635,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./rnn_bench_train_halfx1024x1x25x
 expect ../../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../../NsightCollection
+nsight_save_dir=../../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ##################################################################################
@@ -654,7 +654,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./AN_32 \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 # cd $apps_root/Tango/GPU/CifarNet
@@ -664,7 +664,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../../../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../../../expect.expect "$chmod_cmd"
-# nsight_save_dir=../../../NsightCollection
+# nsight_save_dir=../../../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 cd $apps_root/Tango/GPU/GRU
@@ -674,7 +674,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./GRU \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 cd $apps_root/Tango/GPU/LSTM
@@ -684,7 +684,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./LSTM_32 \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 # cd $apps_root/Tango/GPU/ResNet
@@ -694,7 +694,7 @@ mv -f *.ncu-rep $nsight_save_dir
 # expect ../../../expect.expect "$ncu_cmd"
 # chmod_cmd="chmod u+rw *.ncu-rep"
 # expect ../../../expect.expect "$chmod_cmd"
-# nsight_save_dir=../../../NsightCollection
+# nsight_save_dir=../../../NsightCollection_A100
 # mv -f *.ncu-rep $nsight_save_dir
 
 cd $apps_root/Tango/GPU/SqueezeNet
@@ -704,7 +704,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./SN_32 \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ##################################################################################
@@ -722,7 +722,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./lulesh \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ##################################################################################
@@ -740,7 +740,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./pennant \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 #################################################################################
@@ -759,7 +759,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./bc \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./color_max \
@@ -768,7 +768,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./color_max \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./color_maxmin \
@@ -777,7 +777,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./color_maxmin \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./fw \
@@ -786,7 +786,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./fw \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./mis \
@@ -795,7 +795,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./mis \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./pagerank \
@@ -804,7 +804,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./pagerank \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./pagerank_spmv \
@@ -813,7 +813,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./pagerank_spmv \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sssp \
@@ -822,7 +822,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sssp \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sssp_ell \
@@ -831,7 +831,7 @@ ncu_cmd="/usr/local/cuda-11.8/bin/ncu --export ./sssp_ell \
 expect ../../../expect.expect "$ncu_cmd"
 chmod_cmd="chmod u+rw *.ncu-rep"
 expect ../../../expect.expect "$chmod_cmd"
-nsight_save_dir=../../../NsightCollection
+nsight_save_dir=../../../NsightCollection_A100
 mv -f *.ncu-rep $nsight_save_dir
 
 exit_script
