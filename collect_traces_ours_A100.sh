@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Stable Version, 20240617
+
 function exit_script() {                                                      
 	exit 1                                                                    
 }
