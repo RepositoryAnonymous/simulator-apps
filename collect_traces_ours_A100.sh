@@ -484,8 +484,7 @@ mv -f memory_traces/ sass_traces/ configs/ $trace_save_dir
 ##################################################################################
 
 cd $apps_root/pannotia
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/yangjianchao/Github/accel-sim-framework-dev-bak/gpu-app-collection/4.2/CUDALibraries/common/lib/
-export NVIDIA_COMPUTE_SDK_LOCATION=/home/yangjianchao/Github/accel-sim-framework-dev-bak/gpu-app-collection/4.2/
+export NVIDIA_COMPUTE_SDK_LOCATION=/path/to/NVIDIA_COMPUTE_SDK_LOCATION/4.2/
 bash cleanall.sh && bash buildall.sh
 
 LD_PRELOAD=../../tracing-tool/tracer.so ./bc/bc data/bc/data/2k_1M.gr
