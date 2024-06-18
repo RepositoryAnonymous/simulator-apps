@@ -34,7 +34,7 @@ import openpyxl
 
 import re
 
-def parse_file(filename):
+def parse_ppt_result_file(filename):
     with open(filename, 'r') as f:
         content = f.read()
 
@@ -91,58 +91,7 @@ def find_row_num(file_path, string, num_occur):
                     return index + 1
     return -1
 
-def parse_file2(filename, start, end):
-    with open(filename, 'r') as f:
-        content_all = f.read()
-        
-        content_ = content_all.split('\n')[start:end+1]
-        # print(content_[0])
-        # print(content_[-1])
-        content = ""
-        for char in content_:
-            content += char + '\n'
-
-    result = [None for _ in range(36)]
-    result[ 0] = None
-    result[ 1] = None
-    result[ 2] = None
-    result[ 3] = None
-    result[ 4] = None
-    result[ 5] = None
-    result[ 6] = None
-    result[ 7] = None
-    result[ 8] = None
-    result[ 9] = float(re.search(r'gpu_occupancy = (\d+\.\d+|\d+)%', content).group(1)) 
-    result[10] = (1. - float(re.search(r'L1D_total_cache_miss_rate = (\d+\.\d+|\d+)', content).group(1))) * 100
-    result[11] = None
-    result[12] = (1. - float(re.search(r'L2_total_cache_miss_rate = (\d+\.\d+|\d+)', content).group(1))) * 100
-    result[13] = int(re.search(r'gpgpu_n_mem_read_global = (\d+)', content).group(1))
-    result[14] = int(re.search(r'gpgpu_n_mem_write_global = (\d+)', content).group(1)) 
-    result[15] = int(re.search(r'gpgpu_n_mem_read_global = (\d+)', content).group(1)) + int(re.search(r'gpgpu_n_mem_write_global = (\d+)', content).group(1))
-    result[16] = None
-    result[17] = None
-    result[18] = None
-    result[19] = None
-    result[20] = None
-    result[21] = None
-    result[22] = None
-    result[23] = None
-    result[24] = None
-    result[25] = None
-    result[26] = None
-    result[27] = None
-    result[28] = int(re.search(r'gpu_sim_cycle = (\d+)', content).group(1))
-    result[29] = int(re.search(r'gpu_sim_cycle = (\d+)', content).group(1))
-    result[30] = int(int(re.search(r'gpu_sim_insn = (\d+)', content).group(1)) / 32)
-    result[31] = float(re.search(r'gpu_ipc =\s*(\d+\.\d+|\d+)', content).group(1)) / 32 / float(re.search(r'-gpgpu_occupancy_sm_number\s*(\d+)', content_all).group(1))
-    result[32] = result[31] * float(re.search(r'-gpgpu_clock_domains (\d+\.\d+|\d+):', content_all).group(1))
-    result[33] = float(re.search(r'gpgpu_simulation_rate = (\d+) \(cycle', content).group(1)) * int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5)) / float(re.search(r'-gpgpu_clock_domains\s*(\d+\.\d+|\d+):', content_all).group(1)) * 1e3# / 1e-6 * 1e6 
-    result[34] = int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5))
-    result[35] = None
-
-    return result
-
-def parse_file3(filename, start, end):
+def parse_asim_result_file(filename, start, end):
     with open(filename, 'r') as f:
         content_all = f.read()
         
@@ -185,21 +134,20 @@ def parse_file3(filename, start, end):
     result[30] = int(int(re.search(r'gpu_sim_insn = (\d+)', content).group(1)) / 32)
     result[31] = float(re.search(r'gpu_ipc =\s*(\d+\.\d+|\d+)', content).group(1)) / 32 / float(re.search(r'-gpgpu_occupancy_sm_number\s*(\d+)', content_all).group(1))
     result[32] = result[31] * float(re.search(r'-gpgpu_clock_domains (\d+\.\d+|\d+):', content_all).group(1))
-    result[33] = float(re.search(r'gpgpu_simulation_rate = (\d+) \(cycle', content).group(1)) * int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5)) / float(re.search(r'-gpgpu_clock_domains\s*(\d+\.\d+|\d+):', content_all).group(1)) * 1e3# / 1e-6 * 1e6 
+    result[33] = float(re.search(r'gpgpu_simulation_rate = (\d+) \(cycle', content).group(1)) * int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5)) / float(re.search(r'-gpgpu_clock_domains\s*(\d+\.\d+|\d+):', content_all).group(1)) * 1e3
     result[34] = int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5))
     result[35] = None
 
     return result
 
-def parse_file4(filename):
-    
+def parse_ours_result_file(filename):
     # judge if the file exists, if not, return a list of None
     if not os.path.exists(filename):
         return [None for _ in range(36)], [None for _ in range(108)]
     
     with open(filename, 'r') as f:
         content = f.read()
-
+    
     result = [None for _ in range(36)]
     result[ 0] = None
     result[ 1] = None
@@ -590,13 +538,10 @@ def parse_file4(filename):
     return result, result_stall
 
 if __name__ == "__main__":
-    # Do test
-    
     if os.path.exists('compare.xlsx'):
         workbook = openpyxl.load_workbook('compare.xlsx')
     else:
         workbook = openpyxl.Workbook()
-    # workbook = openpyxl.load_workbook()
 
     sheet_ncu = workbook.create_sheet('NCU', 1)
     sheet_ppt = workbook.create_sheet('PPT', 2)
@@ -760,16 +705,11 @@ if __name__ == "__main__":
     err_ppt.append(entry)
     sheet_accel_sim.append(entry)
     err_accel_sim.append(entry)
-    # sheet_ours.append(entry)
     sheet_ours.append(entry_ours)
     err_ours.append(entry)
 
     for report_file_path in ncu_report_file_paths:
-        # print(report_file_path[0])
         report = ncu_report.load_report(report_file_path[0])
-        # print(report)
-        # print(len(report[0]))
-        # break
         kernel_num = min(len(report[0]), 100)
 
         for knum in range(kernel_num):
@@ -778,8 +718,7 @@ if __name__ == "__main__":
         ################################################################################
         ####                             do ncu report                              ####
         ################################################################################
-            print("%81s" % report_file_path[0], "knums: %4d" % len(report[0]), "kernel-%4d" % knum)
-            # print(report_file_path[0].split("/")[-1].split(".")[0])
+            print("%81s" % report_file_path[0].split("/")[-1], "knums: %4d" % len(report[0]), "kernel-%4d" % (knum + 1))
             app_results = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
 
             app_results.append(get_launch__occupancy_limit_blocks(kernel))
@@ -828,18 +767,11 @@ if __name__ == "__main__":
                                get_gpc__cycles_elapsed_avg_per_second(kernel) * 1e-6)
             app_results.append(get_gpu__time_duration_sum(kernel))
             
-            # print(app_results)
             sheet_ncu.append(app_results + [get_L1_Total_Requests(kernel), \
                                             get_lts__t_requests_srcunit_tex_sum(kernel)])
         ################################################################################
         ####                             do ASIM report                             ####
         ################################################################################
-            # print(report_file_path[0].split("/")[-1].split(".")[0], "kernel-id:", knum)
-            # if not report_file_path[2] == None:
-            #     os.system("ls " + report_file_path[2]+"/simulation.log")
-            # result = parse_file2(report_file_path[2]+"/simulation.log")
-            # print("result:", result)
-            
             if not os.path.exists(report_file_path[2]+"/simulation.log"):
                 result = ["NEXIST" for _ in range(36)]
                 written_data_asim = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
@@ -853,7 +785,6 @@ if __name__ == "__main__":
             kernel_info_start_line = find_row_num(report_file_path[2]+"/simulation.log", "Processing kernel", knum+1)
             kernel_info_end_line = find_row_num(report_file_path[2]+"/simulation.log", "gpgpu_silicon_slowdown", knum+1)
             kernel_info_start_index, kernel_info_end_index = kernel_info_start_line - 1, kernel_info_end_line - 1
-            # print(kernel_info_start_index, kernel_info_end_index)
             
             is_not_complete = False
             if kernel_info_start_index != -2 and kernel_info_end_index == -2:
@@ -866,23 +797,19 @@ if __name__ == "__main__":
             elif is_not_complete:
                 result = ["NCOM" for _ in range(34)]
             else:
-                result = parse_file3(report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index)
+                result = parse_asim_result_file(report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index)
                 if knum > 0:
                     result[13] -= last_result[13]
                     result[14] -= last_result[14]
                     result[15] -= last_result[15]
                     result[34] -= last_result[34]
                     
-                last_result = copy.deepcopy(parse_file3(report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index))
+                last_result = copy.deepcopy(parse_asim_result_file(report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index))
             
             written_data_asim = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
             for item in result[2:]:
                 written_data_asim.append(item)
             sheet_accel_sim.append(written_data_asim)
-
-            # file = open('pickle_example.pickle', 'wb')
-            # pickle.dump(sheet_accel_sim, file)
-            # file.close()
  
         ################################################################################
         ####                             do err report                              ####
@@ -911,8 +838,7 @@ if __name__ == "__main__":
         ################################################################################
         ####                             do ppt report                              ####
         ################################################################################
-            # print(report_file_path[0].split("/")[-1].split(".")[0], "kernel-id:", knum)
-            result = parse_file(report_file_path[1]+"/kernel_"+str(knum+1)+"_SASS_g1.out")
+            result = parse_ppt_result_file(report_file_path[1]+"/kernel_"+str(knum+1)+"_SASS_g1.out")
             written_data = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
             for item in result[2:]:
                 written_data.append(item)
@@ -932,8 +858,7 @@ if __name__ == "__main__":
         ################################################################################
         ####                             do ours report                             ####
         ################################################################################
-            # print(report_file_path[3]+"/kernel-"+str(knum)+"-summary.txt")
-            result, result_stall = parse_file4(report_file_path[3]+"/kernel-"+str(knum)+"-summary.txt")
+            result, result_stall = parse_ours_result_file(report_file_path[3]+"/kernel-"+str(knum)+"-summary.txt")
             
             written_data = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
             for item in result[2:]:
