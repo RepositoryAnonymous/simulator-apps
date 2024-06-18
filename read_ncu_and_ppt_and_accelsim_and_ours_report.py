@@ -50,7 +50,9 @@ def parse_ppt_result_file(filename):
     result[ 8] = float(re.search(r'achieved active warps per SM: (\d+\.\d+|\d+)', content).group(1))
     result[ 9] = float(re.search(r'achieved occupancy: (\d+\.\d+|\d+) %', content).group(1))
     result[10] = float(re.search(r'unified L1 cache hit rate: (\d+\.\d+|\d+) %', content).group(1))
-    result[11] = float(re.search(r'unified L1 cache hit rate for read transactions \(global memory accesses\): (\d+\.\d+|\d+) %', content).group(1))
+    result[11] = float(re.search( \
+        r'unified L1 cache hit rate for read transactions \(global memory accesses\): (\d+\.\d+|\d+) %', \
+        content).group(1))
     result[12] = float(re.search(r'L2 cache hit rate: (\d+\.\d+|\d+) %', content).group(1))
     result[13] = int(re.search(r'GMEM read requests: (\d+)', content).group(1))
     result[14] = int(re.search(r'GMEM write requests: (\d+)', content).group(1))
@@ -58,8 +60,10 @@ def parse_ppt_result_file(filename):
     result[16] = int(re.search(r'GMEM read transactions: (\d+)', content).group(1))
     result[17] = int(re.search(r'GMEM write transactions: (\d+)', content).group(1))
     result[18] = int(re.search(r'GMEM total transactions: (\d+)', content).group(1))
-    result[19] = float(re.search(r'number of read transactions per read requests: (\d+\.\d+|\d+) \(', content).group(1))
-    result[20] = float(re.search(r'number of write transactions per write requests: (\d+\.\d+|\d+) \(', content).group(1))
+    result[19] = float(re.search(r'number of read transactions per read requests: (\d+\.\d+|\d+) \(', \
+                       content).group(1))
+    result[20] = float(re.search(r'number of write transactions per write requests: (\d+\.\d+|\d+) \(', \
+                                 content).group(1))
     result[21] = int(re.search(r'L2 read transactions: (\d+)', content).group(1))
     result[22] = int(re.search(r'L2 write transactions: (\d+)', content).group(1))
     result[23] = int(re.search(r'L2 total transactions: (\d+)', content).group(1))
@@ -67,11 +71,16 @@ def parse_ppt_result_file(filename):
     result[25] = int(re.search(r'Total number of global atomic requests: (\d+)', content).group(1))
     result[26] = int(re.search(r'Total number of global reduction requests: (\d+)', content).group(1))
     result[27] = int(re.search(r'Global memory atomic and reduction transactions: (\d+)', content).group(1))
-    result[28] = int(re.search(r'GPU active cycles \(max\): (\d{1,3}(,\d{3})*|\d+)', content).group(1).replace(",", ""))
-    result[29] = int(re.search(r'SM active cycles \(sum\): (\d{1,3}(,\d{3})*|\d+)', content).group(1).replace(",", ""))
-    result[30] = int(re.search(r'Warp instructions executed: (\d{1,3}(,\d{3})*|\d+)', content).group(1).replace(",", ""))
-    result[31] = float(re.search(r'Instructions executed per clock cycle \(IPC\): (\d+\.\d+|\d+)', content).group(1))
-    result[32] = float(re.search(r'Total instructions executed per seconds \(MIPS\): (\d+\.\d+|\d+)', content).group(1))
+    result[28] = int(re.search(r'GPU active cycles \(max\): (\d{1,3}(,\d{3})*|\d+)', \
+        content).group(1).replace(",", ""))
+    result[29] = int(re.search(r'SM active cycles \(sum\): (\d{1,3}(,\d{3})*|\d+)', \
+        content).group(1).replace(",", ""))
+    result[30] = int(re.search(r'Warp instructions executed: (\d{1,3}(,\d{3})*|\d+)', \
+        content).group(1).replace(",", ""))
+    result[31] = float(re.search(r'Instructions executed per clock cycle \(IPC\): (\d+\.\d+|\d+)', \
+        content).group(1))
+    result[32] = float(re.search(r'Total instructions executed per seconds \(MIPS\): (\d+\.\d+|\d+)', \
+        content).group(1))
     result[33] = float(re.search(r'Kernel execution time: (\d+\.\d+|\d+)', content).group(1))
     if re.search(r'Kernel execution time: (\d+\.\d+|\d+) ([a-zA-Z]+)', content).group(2) == "us":
         result[33] = result[33]*1000
@@ -116,7 +125,8 @@ def parse_asim_result_file(filename, start, end):
     result[12] = (1. - float(re.search(r'L2_total_cache_miss_rate = (\d+\.\d+|\d+)', content).group(1))) * 100
     result[13] = int(re.search(r'gpgpu_n_mem_read_global = (\d+)', content).group(1))
     result[14] = int(re.search(r'gpgpu_n_mem_write_global = (\d+)', content).group(1)) 
-    result[15] = int(re.search(r'gpgpu_n_mem_read_global = (\d+)', content).group(1)) + int(re.search(r'gpgpu_n_mem_write_global = (\d+)', content).group(1))
+    result[15] = int(re.search(r'gpgpu_n_mem_read_global = (\d+)', content).group(1)) + \
+                 int(re.search(r'gpgpu_n_mem_write_global = (\d+)', content).group(1))
     result[16] = None
     result[17] = None
     result[18] = None
@@ -132,10 +142,17 @@ def parse_asim_result_file(filename, start, end):
     result[28] = int(re.search(r'gpu_sim_cycle = (\d+)', content).group(1))
     result[29] = int(re.search(r'gpu_sim_cycle = (\d+)', content).group(1))
     result[30] = int(int(re.search(r'gpu_sim_insn = (\d+)', content).group(1)) / 32)
-    result[31] = float(re.search(r'gpu_ipc =\s*(\d+\.\d+|\d+)', content).group(1)) / 32 / float(re.search(r'-gpgpu_occupancy_sm_number\s*(\d+)', content_all).group(1))
+    result[31] = float(re.search(r'gpu_ipc =\s*(\d+\.\d+|\d+)', content).group(1)) / 32 / \
+                 float(re.search(r'-gpgpu_occupancy_sm_number\s*(\d+)', content_all).group(1))
     result[32] = result[31] * float(re.search(r'-gpgpu_clock_domains (\d+\.\d+|\d+):', content_all).group(1))
-    result[33] = float(re.search(r'gpgpu_simulation_rate = (\d+) \(cycle', content).group(1)) * int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5)) / float(re.search(r'-gpgpu_clock_domains\s*(\d+\.\d+|\d+):', content_all).group(1)) * 1e3
-    result[34] = int(re.search(r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', content).group(5))
+    result[33] = float(re.search(r'gpgpu_simulation_rate = (\d+) \(cycle', content).group(1)) * \
+                       int(re.search( \
+                           r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', \
+                           content).group(5)) / \
+                       float(re.search(r'-gpgpu_clock_domains\s*(\d+\.\d+|\d+):', content_all).group(1)) * 1e3
+    result[34] = int(re.search(\
+                     r'gpgpu_simulation_time = (\d+) days, (\d+) hrs, (\d+) min, (\d+) sec \((\d+) sec\)', \
+                     content).group(5))
     result[35] = None
 
     return result
@@ -168,8 +185,10 @@ def parse_ours_result_file(filename):
     result[16] = int(re.search(r'GMEM_read_transactions: (\d+)', content).group(1))
     result[17] = int(re.search(r'GMEM_write_transactions: (\d+)', content).group(1))
     result[18] = int(re.search(r'GMEM_total_transactions: (\d+)', content).group(1))
-    result[19] = float(re.search(r'Number_of_read_transactions_per_read_requests: (\d+\.\d+|\d+)', content).group(1))
-    result[20] = float(re.search(r'Number_of_write_transactions_per_write_requests: (\d+\.\d+|\d+)', content).group(1))
+    result[19] = float(re.search(r'Number_of_read_transactions_per_read_requests: (\d+\.\d+|\d+)', \
+                                 content).group(1))
+    result[20] = float(re.search(r'Number_of_write_transactions_per_write_requests: (\d+\.\d+|\d+)', \
+                                 content).group(1))
     result[21] = int(re.search(r'L2_read_transactions: (\d+)', content).group(1))
     result[22] = int(re.search(r'L2_write_transactions: (\d+)', content).group(1))
     result[23] = int(re.search(r'L2_total_transactions: (\d+)', content).group(1))
@@ -181,8 +200,10 @@ def parse_ours_result_file(filename):
     result[29] = int(re.search(r'SM_active_cycles: (\d+)', content).group(1).replace(",", ""))
     
     result[30] = int(re.search(r'Warp_instructions_executed: (\d+)', content).group(1).replace(",", ""))
-    result[31] = float(re.search(r'Instructions_executed_per_clock_cycle_IPC: (\d+\.\d+|\d+)', content).group(1))
-    result[32] = float(re.search(r'Total_instructions_executed_per_seconds \(MIPS\): (\d+\.\d+|\d+)', content).group(1))
+    result[31] = float(re.search(r'Instructions_executed_per_clock_cycle_IPC: (\d+\.\d+|\d+)', \
+                                 content).group(1))
+    result[32] = float(re.search(r'Total_instructions_executed_per_seconds \(MIPS\): (\d+\.\d+|\d+)', \
+                                 content).group(1))
     result[33] = float(re.search(r'Kernel_execution_time \(ns\): (\d+\.\d+|\d+)', content).group(1))
     result[34] = float(re.search(r'Simulation_time_memory_model \(s\): (\d+\.\d+|\d+)', content).group(1))
     result[35] = float(re.search(r'Simulation_time_compute_model \(s\): (\d+\.\d+|\d+)', content).group(1))
@@ -718,7 +739,8 @@ if __name__ == "__main__":
         ################################################################################
         ####                             do ncu report                              ####
         ################################################################################
-            print("%81s" % report_file_path[0].split("/")[-1], "knums: %4d" % len(report[0]), "kernel-%4d" % (knum + 1))
+            print("%81s" % report_file_path[0].split("/")[-1], "knums: %4d" % \
+                len(report[0]), "kernel-%4d" % (knum + 1))
             app_results = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
 
             app_results.append(get_launch__occupancy_limit_blocks(kernel))
@@ -780,10 +802,13 @@ if __name__ == "__main__":
                 sheet_accel_sim.append(written_data_asim)
                 continue
 
-            is_deaklock = find_row_num(report_file_path[2]+"/simulation.log", "GPGPU-Sim uArch: ERROR ** deadlock detected", 1) != -1
+            is_deaklock = find_row_num(report_file_path[2]+"/simulation.log", \
+                                       "GPGPU-Sim uArch: ERROR ** deadlock detected", 1) != -1
 
-            kernel_info_start_line = find_row_num(report_file_path[2]+"/simulation.log", "Processing kernel", knum+1)
-            kernel_info_end_line = find_row_num(report_file_path[2]+"/simulation.log", "gpgpu_silicon_slowdown", knum+1)
+            kernel_info_start_line = find_row_num( \
+                report_file_path[2]+"/simulation.log", "Processing kernel", knum+1)
+            kernel_info_end_line = find_row_num( \
+                report_file_path[2]+"/simulation.log", "gpgpu_silicon_slowdown", knum+1)
             kernel_info_start_index, kernel_info_end_index = kernel_info_start_line - 1, kernel_info_end_line - 1
             
             is_not_complete = False
@@ -797,14 +822,16 @@ if __name__ == "__main__":
             elif is_not_complete:
                 result = ["NCOM" for _ in range(34)]
             else:
-                result = parse_asim_result_file(report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index)
+                result = parse_asim_result_file(report_file_path[2]+"/simulation.log", kernel_info_start_index, \
+                                                kernel_info_end_index)
                 if knum > 0:
                     result[13] -= last_result[13]
                     result[14] -= last_result[14]
                     result[15] -= last_result[15]
                     result[34] -= last_result[34]
                     
-                last_result = copy.deepcopy(parse_asim_result_file(report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index))
+                last_result = copy.deepcopy(parse_asim_result_file( \
+                    report_file_path[2]+"/simulation.log", kernel_info_start_index, kernel_info_end_index))
             
             written_data_asim = [report_file_path[0].split("/")[-1].split(".")[0], str(knum)]
             for item in result[2:]:
